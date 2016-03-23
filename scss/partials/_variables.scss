@@ -1,3 +1,15 @@
+// resposnive
+$responsive-mode: 'RWD'; // options 'RWD' or 'AWD'
+
+// break points
+$bp-lg: 1170px;
+$bp-md: 960px;
+$bp-sm: 768px;
+
 // grid
-$width-grid: 1170px;
 $column-gap: 30px;
+$width-grid-rwd: 1170px;
+$width-grid-lg-awd: 1170px;
+$width-grid-md-awd: 930px;
+$width-grid-sm-awd: 738px;
+$width-grid-xs-awd: 480px;

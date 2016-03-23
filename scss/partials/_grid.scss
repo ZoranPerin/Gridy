@@ -1,8 +1,36 @@
 .grid-container {
-	margin: 0 auto;
-	max-width: $width-grid;
-	position: relative;
-	width: 100%;
+
+    @if $responsive-mode == 'RWD' {
+
+    	margin: 0 auto;
+    	max-width: $width-grid-rwd;
+    	position: relative;
+    	width: 100%;
+
+    } @else if $responsive-mode == 'AWD' {
+
+    	margin: 0 auto;
+    	position: relative;
+    	width: 100%;
+
+        @include breakpoint(lg) {
+            max-width: $width-grid-lg-awd;
+        }
+
+        @include breakpoint(md) {
+            max-width: $width-grid-md-awd;
+        }
+
+        @include breakpoint(sm) {
+            max-width: $width-grid-sm-awd;
+        }
+
+        @include breakpoint(xs) {
+            max-width: $width-grid-xs-awd;
+        }
+
+    }
+
 }
 
 .row {
