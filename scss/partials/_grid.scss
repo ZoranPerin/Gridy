@@ -13,19 +13,19 @@
     	max-width: $width-grid;
     	position: relative;
 
-        @include breakpoint(lg) {
-           max-width: $md;
+        @include breakpoint(desktop) {
+           max-width: $tablet;
         }
 
-        @include breakpoint(md) {
-           max-width: $sm;
+        @include breakpoint(tablet) {
+           max-width: $phablet;
         }
 
-        @include breakpoint(sm) {
-           max-width: $xs;
+        @include breakpoint(phablet) {
+           max-width: $phone;
         }
 
-        @include breakpoint(xs) {
+        @include breakpoint(phone) {
             max-width: 100%;
         }
 
@@ -43,8 +43,18 @@
 			@include column($i);
 		}
 
-	    .column-offset-#{$i} {
+	}
+
+	@for $i from 1 through $column-number {
+
+	    .offset-#{$i} {
+
 		    @include column-offset($i);
+
+	        @include breakpoint(phablet) {
+	            margin-left: 0;
+	        }
+
 	    }
 
 	}
@@ -57,9 +67,9 @@
 		min-height: 1px;
 		padding: 0 $column-gap/2;
 
-        @include breakpoint(sm) {
-    		float: none !important;
-    		width: 100% !important;
+        @include breakpoint(phablet) {
+    		float: none;
+    		width: 100%;
         }
 
         /* just for demo */
@@ -77,10 +87,18 @@
 
     }
 
+	[class*='offset-'] {
+
+        @include breakpoint(phablet) {
+    		margin-left: 0;
+        }
+
+    }
+
     .row {
-	    margin-left: -$column-gap/2;
-	    margin-right: -$column-gap/2;
-	    position: relative;
+        margin-left: -$column-gap/2;
+        margin-right: -$column-gap/2;
+        position: relative;
     }
 
 }
